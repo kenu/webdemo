@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Aerial by HTML5 UP</title>
+		<title>!Aerial by HTML5 UP</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -20,8 +20,8 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1>Kenu Heo</h1>
-						<p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>
+						<h1 style="color: red;" th:text="'Hello ' + ${name}"></h1>
+						<p>Security Dev &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>
 						<nav>
 							<ul>
 								<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
@@ -41,7 +41,18 @@
 			</div>
 		</div>
 		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
+			function addEvent() {
+				var icons = document.querySelectorAll('.icon');
+				icons.forEach(item => {
+					item.addEventListener('click', (e) => {
+						console.log(e.target.innerHTML)
+					})
+				})
+			}
+			window.onload = function() {
+				document.body.classList.remove('is-preload');
+				addEvent();
+			}
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
 		</script>
